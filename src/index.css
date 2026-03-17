@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+    --color-glass: rgba(255, 255, 255, 0.15);
+    --blur-xs: 2px;
+}
