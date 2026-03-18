@@ -1,16 +1,48 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and elegant weather application built with React and Vite. 
+This app allows users to search for real-time weather information and forecasts for various cities around the world.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 🌍 **Real-time weather data:** Get current weather conditions for any city.
+- 🔍 **Search functionality:** Easily search for locations by city name.
+- 🌡️ **Detailed metrics:** Displays temperature, humidity, wind speed, and weather descriptions.
+- 📱 **Responsive design:** Optimized for both mobile and desktop experiences.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend:** [React](https://react.dev/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **API:** [OpenWeatherMap](https://openweathermap.org/) (or similar weather API)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+Make sure you have Node.js and npm (or yarn) installed on your machine. You will also need an API key from a weather service provider like OpenWeatherMap.
+
+### Installation
+
+1. Clone the repository to your local machine.
+2. Navigate to the project directory and run `npm install` (or `yarn install`) to install dependencies.
+3. Create a `.env` file in the root directory and add your API key: `VITE_WEATHER_API_KEY=your_api_key_here`
+4. Start the development server using `npm run dev` (or `yarn dev`).
+
+## File Structure
+
+```text
+weather/
+├── public/             # Static assets
+├── src/
+│   ├── assets/         # Images, icons, etc.
+│   ├── components/     # Reusable React components (e.g., WeatherCard, SearchBar)
+│   ├── hooks/          # Custom React hooks (e.g., useWeather)
+│   ├── App.jsx         # Main application component
+│   ├── index.css       # Global styles
+│   └── main.jsx        # Application entry point
+├── .env                # Environment variables (API keys)
+├── index.html          # HTML entry point
+├── package.json        # Project metadata and dependencies
+└── vite.config.js      # Vite configuration
+```

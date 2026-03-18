@@ -96,9 +96,18 @@ function App() {
     }
   };
 
+  // Format the city name for the image search URL (e.g., "Phnom Penh" -> "Phnom+Penh")
+  const bgCity = weather ? weather.current.name.replace(/ /g, '+') : 'city';
+
   return (
-    <div className={`min-h-screen flex items-center justify-center p-4 bg-gradient-to-br ${getBgGradient()} transition-all duration-700`}>
-      <div className="w-full max-w-5xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2.5rem] shadow-2xl p-8 text-white flex flex-col md:flex-row gap-8">
+    <div
+      className="min-h-screen flex items-center justify-center p-4 relative bg-cover bg-center bg-no-repeat transition-all duration-1000"
+      style={{ backgroundImage: `url('https://source.unsplash.com/1920x1080/?${bgCity},landscape,city')` }}
+    >
+      {/* Dynamic Weather Color Overlay */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${getBgGradient()} opacity-60 transition-all duration-1000`}></div>
+
+      <div className="relative z-10 w-full max-w-5xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-[2.5rem] shadow-2xl p-8 text-white flex flex-col md:flex-row gap-8">
 
         {/* Left Side: Current Stats */}
         <div className="md:w-1/3 flex flex-col gap-6">
@@ -118,7 +127,7 @@ function App() {
               </button>
             </div>
           ) : (
-            weather && <CurrentWeather data={weather.current} forecast={weather.forecast} unit={unit} />
+            weather && <CurrentWeather data={weather.current} unit={unit} />
           )}
         </div>
 
@@ -129,7 +138,7 @@ function App() {
               <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
             </div>
           ) : (
-            !error && weather && <Forecast items={weather.forecast} />
+            !error && weather && <Forecast items={weather.fullForecast} />
           )}
         </div>
 

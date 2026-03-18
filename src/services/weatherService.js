@@ -21,6 +21,7 @@ const getWeatherData = async (city, units = 'metric') => {
     return {
       current: currentRes.data,
       forecast: dailyForecast,
+      fullForecast: forecastRes.data.list,
     };
   } catch (error) {
     console.error("Error fetching weather data:", error);
