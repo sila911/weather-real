@@ -65,24 +65,30 @@ npm run dev
 
 ```text
 weather/
+├── .env
 ├── .env.exsample
+├── .gitignore
+├── Forecast.jsx
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
 ├── public/
 ├── src/
+│   ├── App.css
+│   ├── App.jsx
 │   ├── assets/
 │   ├── components/
 │   │   ├── CurrentWeather.jsx
 │   │   ├── Forecast.jsx
 │   │   ├── MetricCard.jsx
 │   │   └── SearchBar.jsx
+│   ├── index.css
+│   ├── main.jsx
 │   ├── services/
 │   │   └── weatherService.js
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── eslint.config.js
-├── index.html
-├── package.json
+├── README.md
 ├── tailwind.config.js
 └── vite.config.js
 ```
