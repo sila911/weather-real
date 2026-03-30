@@ -1,48 +1,93 @@
-# Weather App
+# Weather Dashboard
 
-A simple and elegant weather application built with React and Vite. 
-This app allows users to search for real-time weather information and forecasts for various cities around the world.
+A modern weather dashboard built with React and Vite that shows live weather, forecast trends, and air quality for cities worldwide.
 
 ## Features
 
-- 🌍 **Real-time weather data:** Get current weather conditions for any city.
-- 🔍 **Search functionality:** Easily search for locations by city name.
-- 🌡️ **Detailed metrics:** Displays temperature, humidity, wind speed, and weather descriptions.
-- 📱 **Responsive design:** Optimized for both mobile and desktop experiences.
+- Live current weather by city
+- Search with debounced location suggestions
+- Auto-detect default city from browser geolocation (with fallback)
+- Forecast trend chart with filter modes: `24H`, `3 Days`, and `Week`
+- Air Quality Index (AQI) with PM2.5 summary
+- Favorites and recent searches persisted in `localStorage`
+- Switchable visual themes (`Aurora`, `Noir`, `Sand`)
+- Responsive glassmorphism UI for desktop and mobile
 
 ## Tech Stack
 
-- **Frontend:** [React](https://react.dev/)
-- **Build Tool:** [Vite](https://vitejs.dev/)
-- **API:** [OpenWeatherMap](https://openweathermap.org/) (or similar weather API)
+- React 19
+- Vite 6
+- Tailwind CSS 4
+- Recharts (forecast charts)
+- Axios (API requests)
+- OpenWeather APIs (`/weather`, `/forecast`, `/air_pollution`, geocoding)
+
+## Prerequisites
+
+- Node.js 18+
+- npm 9+
+- OpenWeather API key
+
+## Environment Variables
+
+Create a `.env` file in the project root:
+
+You can copy `.env.exsample` and rename it to `.env`, then add your API key.
+
+```env
+VITE_WEATHER_API_KEY=your_openweather_api_key
+```
 
 ## Getting Started
 
-### Prerequisites
+1. Install dependencies:
 
-Make sure you have Node.js and npm (or yarn) installed on your machine. You will also need an API key from a weather service provider like OpenWeatherMap.
+```bash
+npm install
+```
 
-### Installation
+2. Start the development server:
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory and run `npm install` (or `yarn install`) to install dependencies.
-3. Create a `.env` file in the root directory and add your API key: `VITE_WEATHER_API_KEY=your_api_key_here`
-4. Start the development server using `npm run dev` (or `yarn dev`).
+```bash
+npm run dev
+```
 
-## File Structure
+3. Open the URL shown in terminal (usually `http://localhost:5173`).
+
+## Available Scripts
+
+- `npm run dev` - Run app in development mode
+- `npm run build` - Build production bundle
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## Project Structure
 
 ```text
 weather/
-├── public/             # Static assets
+├── .env.exsample
+├── public/
 ├── src/
-│   ├── assets/         # Images, icons, etc.
-│   ├── components/     # Reusable React components (e.g., WeatherCard, SearchBar)
-│   ├── hooks/          # Custom React hooks (e.g., useWeather)
-│   ├── App.jsx         # Main application component
-│   ├── index.css       # Global styles
-│   └── main.jsx        # Application entry point
-├── .env                # Environment variables (API keys)
-├── index.html          # HTML entry point
-├── package.json        # Project metadata and dependencies
-└── vite.config.js      # Vite configuration
+│   ├── assets/
+│   ├── components/
+│   │   ├── CurrentWeather.jsx
+│   │   ├── Forecast.jsx
+│   │   ├── MetricCard.jsx
+│   │   └── SearchBar.jsx
+│   ├── services/
+│   │   └── weatherService.js
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── eslint.config.js
+├── index.html
+├── package.json
+├── tailwind.config.js
+└── vite.config.js
 ```
+
+## Notes
+
+- If geolocation permission is denied, the app falls back to `Phnom Penh`.
+- Forecast and AQI data come from OpenWeather and require a valid API key.
