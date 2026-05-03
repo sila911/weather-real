@@ -54,13 +54,6 @@ npm run dev
 
 3. Open the URL shown in terminal (usually `http://localhost:5173`).
 
-## Available Scripts
-
-- `npm run dev` - Run app in development mode
-- `npm run build` - Build production bundle
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint
-
 ## Project Structure
 
 ```text
